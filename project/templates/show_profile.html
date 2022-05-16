@@ -1,0 +1,282 @@
+{% extends "dashboard_layout.html" %}
+ {% block content %}
+
+<link rel="stylesheet" href="../static/css/show_profile.css">
+<!-- <link rel="stylesheet" href="../static/css/dashboard.css"> -->
+
+
+<div class="show" >
+    <div class="name_profile" style="margin-top: 1%; justify-content: center; text-align: center;" >
+
+        <div class="circle_profile">
+            {{ signup[0]['firstname'][0] }}{{ signup[0]['lastname'][0] }}
+        </div>
+        <div class="cname_profile">
+             {{ signup[0]['firstname'] }} {{ signup[0]['lastname'] }}
+        </div>
+
+    </div>
+</div>
+
+<div class="show1">
+    <div  class="bg_profile">
+            <app-profile-basic-info style="width: 100%;">
+                <p class="title_profile" style="margin-bottom: 0px;"><b>Basic Information</b></p>
+                <hr>
+                <table>
+                    <tr>
+                        <td class="col1"><b>Personal Email:</b></td>
+                        {% if personal[0]['contact_email']%}
+                        <td class="col2"><a href="{{personal[0]['contact_email']}}">{{ personal[0]['contact_email']}}</td>
+                        {% else %}
+                        <td class="col2"> Not Provided </td>
+                        {% endif %}
+                    </tr>
+                    <tr>
+                        <td class="col1"><b>Contact Number:</b></td>
+                        {% if personal[0]['contact_number']%}
+                        <td class="col2"> {{personal[0]['contact_number']}} </td>
+                        {% else %}
+                        <td class="col2"> Not Provided </td>
+                        {% endif %}
+                        
+                    </tr>
+                    <tr>
+                        <td class="col1"><b>Address:</b></td>
+                        {% if personal[0]['address']%}
+                            <td class="col2">{{ personal[0]['address']}}</td>
+                        {% else %}
+                            <td class="col2"> Not Provided </td>
+                        {% endif %}
+                    </tr>
+                    <tr>
+                        <td class="col1"><b>About Me:</b></td>
+                        {% if personal[0]['description']%}
+                            <td class="col2">{{ personal[0]['description']}}</td>
+                        {% else %}
+                            <td class="col2"> Not Provided </td>
+                        {% endif %}
+                    </tr>
+                </table>
+            </app-profile-basic-info>
+    </div>
+</div>
+
+<div class="show1">
+    <div  class="bg_profile" >
+            <app-profile-basic-info  style="width: 100%;">
+                <p class="title_profile" style="margin-bottom: 0px;"><b>Education Information</b></p>
+                <hr>
+                <table>
+                    <tr>
+                        <td class="col1" ><b>Degree:</b></td>
+                        {% if education %}
+                            <td class="col2" >{{ education[0]['degree_name']}}</td>
+                        {% else %}
+                            <td class="col2"> Not Provided </td>
+                        {% endif %}
+                    </tr>
+                    <tr>
+                        <td class="col1"><b>Duration:</b></td>
+                        {% if education %}
+                            <td class="col2" >{{ education[0]['start_date']}} - {{ education[0]['end_date']}}</td>
+                        {% else %}
+                            <td class="col2"> Not Provided </td>
+                        {% endif %}
+                    </tr>
+                    <tr>
+                        <td class="col1"><b>CGPA:</b></td>
+                        {% if education %}
+                            <td class="col2" >{{'%0.2f'| format(education[0]['cgpa']|float)}}</td>
+                        {% else %}
+                            <td class="col2"> Not Provided </td>
+                        {% endif %}
+                    </tr>
+                    <tr>
+                        <td class="col1"><b>Courses:</b></td>
+
+                        <td class="col2" >
+                            {% if courses %}
+                            {% for i in range(courses|length) %}
+                                {% if i == (courses|length) - 1%}
+                                {{ courses[i]['department']}}
+                                {{courses[i]['course_no']}}
+                                {% else %}
+                                {{courses[i]['department']}}
+                                {{courses[i]['course_no']}},
+                                {% endif %}
+
+                            {%endfor%}
+                            {% else %}
+                                Not Provided
+                            {% endif %}
+                        </td>
+                    </tr>
+                </table>
+            </app-profile-basic-info>
+    </div>
+</div>
+
+
+<div class="show1">
+    <div  class="bg_profile">
+            <app-profile-basic-info style="width: 100%;">
+                <p class="title_profile" style="margin-bottom: 0px;"><b>Skills</b></p>
+                <hr>
+                <table>
+                    <tr>
+
+                        <td class="col1"><b>Skills/Hobbies:</b></td>
+                        <td class="col2" >
+                            {% if hobbies %}
+                                {% for i in range(hobbies|length) %}
+                                    {% if i == (hobbies|length) - 1%}
+                                    {{hobbies[i]['hobbies']}}
+                                    {% else %}
+                                    {{hobbies[i]['hobbies']}},
+                                    {% endif %}
+
+                                {%endfor%}
+                            {% else %}
+                                Not Provided
+                            {% endif %}
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td class="col1"><b>Certificates:</b></td>
+                        <td class="col2" >
+                            {% if certificates %}
+                                {% for i in range(certificates|length) %}
+                                    {% if i == (certificates|length) - 1%}
+                                    {{certificates[i]['certificates']}}
+                                    {% else %}
+                                    {{certificates[i]['certificates']}},
+                                    {% endif %}
+                                {%endfor%}
+                            {% else %}
+                                Not Provided
+                            {% endif %}
+
+                            
+                        </td>
+                    </tr>
+                </table>
+            </app-profile-basic-info>
+    </div>
+</div>
+
+
+<div class="show1">
+    <div  class="bg_profile">
+            <app-profile-basic-info style="width: 100%;">
+                <p class="title_profile" style="margin-bottom: 0px;"><b>Projects</b></p>
+                <hr>
+
+                <table>
+                {% if projects%}
+                    {%for i in projects%}
+
+                        <tr>
+                            <td class="col1"><b>{{ i['project_title'] }}:</b></td>
+                            <td class="col2" >
+                                {{ i['project_detail'] }}
+                            </td>
+                        </tr>
+                    {%endfor%}
+                {% else %}
+                    <td class="col1"> <b>Projects:</b> </td>
+                    <td class="col2"> None </td>
+                {% endif %}
+
+                </table>
+            </app-profile-basic-info>
+    </div>
+</div>
+
+<div class="show1">
+    <div  class="bg_profile">
+            <app-profile-basic-info style="width: 100%;">
+                <p class="title_profile" style="margin-bottom: 0px;"><b>Work Experience</b></p>
+                <hr>
+                <table>
+                    <tr>
+                        <td class="col1"><b>Company Name:</b></td>
+                        <td class="col2" >
+                            {% if industryExp %}
+                                {{industryExp[0]['company_name']}}
+                            {% else %}
+                                Not Provided
+                            {% endif %}
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col1"><b>Designation:</b></td>
+                        <td class="col2" >
+                            {% if industryExp%}
+                                {{industryExp[0]['designation'] }}
+                            {% else %}
+                                Not Provided
+                            {% endif %}
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col1"><b>Work Description:</b></td>
+                        <td class="col2" >
+                            {% if industryExp%}
+                                {{industryExp[0]['work_description']}}
+                            {% else %}
+                                Not Provided
+                            {% endif %}
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col1"><b>Number of Months:</b></td>
+                        <td class="col2" >
+                            {% if industryExp%}
+                                {{industryExp[0]['no_of_months']}}
+                            {% else %}
+                                Not Provided
+                            {% endif %}
+                        </td>
+                    </tr>
+                </table>
+            </app-profile-basic-info>
+    </div>
+</div>
+<div class="show1">
+    <div  class="bg_profile">
+            <app-profile-basic-info style="width: 100%;">
+                <p class="title_profile" style="margin-bottom: 0px;"><b>Linked Accounts</b></p>
+                <hr>
+
+                <table>
+                {% if accounts %}
+                {%for i in accounts%}
+
+                    <tr>
+                        <td class="col1"><b>{{i['platform']}}:</b></td>
+                        <td class="col2" >
+                            <a href="{{i['link']}}">{{ i['link'] }}</a>
+                        </td>
+                    </tr>
+                {%endfor%}
+                            {% else %}
+                            <td class="col1"><b>Linked Accounts: </b> </td>
+                                <td class="col2"> None </td>
+                            {% endif %}
+
+                </table>
+            </app-profile-basic-info>
+    </div>
+</div>
+
+<br>
+<br>
+<br>
+<br>
+<br>
+
+
+
+{% endblock content %}

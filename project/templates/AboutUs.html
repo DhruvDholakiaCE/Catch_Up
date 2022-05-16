@@ -1,0 +1,276 @@
+{% extends "profile_setup_layout.html" %} {% block content %}
+<!-- <link rel="stylesheet" href="../static/css/about_us/bootstrap.min.css"> -->
+<!-- <link href="bootstrap-3.3.7-dist/bootstrap-3.3.7-dist/css/bootstrap.min.css" rel="stylesheet" /> -->
+<link rel="stylesheet" type="text/css" href="../static/css/aboutus.css">
+<div class="container">
+    <div class="row">
+        <h1 id="title">About Us</h1>
+    </div>
+    <div class="row">
+        <h5 id="title">
+            Our aim as an organization is to provide versatile and cost-effective software. We have come up with the idea <em>"People with similar passion or pastime activity 
+            can all come together onto a common platform".</em> </h5>
+        <h5>Based on this idea we have designed a web-application <b>"Catch-Up"</b> where thousands of university students with varied interests can all collaborate and connect with each other.</h5>
+
+        <br>
+        <h4 id="sub-title"><em><b>Meet Our Team</b></em></h4>
+
+    </div>
+    <!-- <div class="container"> -->
+    <div class="row" style="text-align: center; background-color: #fdd54f">
+        <div class="col-lg-4 col-md-6 col-sm-6" style="border: 1px solid; padding: 10px; color: black;">
+            <div class="thumbnail">
+                <img src="../static/pictures/dhruv.png" alt="Generic placeholder thumbnail" style="height:215px; border-radius: 50%; width: 180px; object-fit: cover;">
+            </div>
+            <div class="caption">
+                <h3>Dhruv Dholakia</h3>
+            </div>
+            <button type="button" class="btn btn-primary" style="background-color: black; border: none;" data-toggle="modal" data-target="#pro2">Show Details
+                </button>
+        </div>
+        <div class="col-lg-4 col-md-6 col-sm-6" style="border: 1px solid; padding: 10px; color: black;">
+            <div class="thumbnail">
+                <img src="../static/pictures/jaysoni.jpg" alt="Generic placeholder thumbnail" style="height:215px; border-radius: 50%; width: 180px;object-fit: cover;">
+            </div>
+            <div class="caption">
+                <h3>Jay B. Soni</h3>
+            </div>
+            <button type="button" class="btn btn-primary" style="background-color: black; border: none;" data-toggle="modal" data-target="#pro1">Show Details
+                </button>
+        </div>
+        <div class="col-lg-4 col-md-6 col-sm-6" style="border: 1px solid; padding: 10px; color: black;">
+            <div class="thumbnail">
+                <img src="../static/pictures/krishnakanth.jpg" alt="Generic placeholder thumbnail" style="height:215px; border-radius: 50%; width: 180px; object-fit: cover;">
+            </div>
+            <div class="caption">
+                <h3>Krishna Kanth Mutta</h3>
+            </div>
+            <button type="button" class="btn btn-primary" style="background-color: black; border: none;" data-toggle="modal" data-target="#pro3">Show Details
+                </button>
+        </div>
+        <div class="col-lg-4 col-md-6 col-sm-6" style="border: 1px solid; padding: 10px; color: black;">
+            <div class="thumbnail">
+                <img src="../static/pictures/ms.jpg" alt="Generic placeholder thumbnail" style="height:215px; border-radius: 50%; width: 180px; object-fit: cover;">
+            </div>
+            <div class="caption">
+                <h3>Mohammed Saquib</h3>
+            </div>
+            <button type="button" class="btn btn-primary" style="background-color: black; border: none;" data-toggle="modal" data-target="#pro4">Show Details
+                </button>
+        </div>
+        <div class="col-lg-4 col-md-6 col-sm-6" style="border: 1px solid; padding: 10px; color: black;">
+            <div class="thumbnail">
+                <img src="../static/pictures/priyanka.jpg" alt="Generic placeholder thumbnail" style="height:215px; border-radius: 50%; width: 180px; object-fit: cover;">
+            </div>
+            <div class="caption">
+                <h3>Priyanka Jain</h3>
+            </div>
+            <button type="button" class="btn btn-primary" style="background-color: black; border: none;" data-toggle="modal" data-target="#pro5">Show Details
+                </button>
+        </div>
+        <div class="col-lg-4 col-md-6 col-sm-6" style="border: 1px solid; padding: 10px; color: black;">
+            <div class="thumbnail">
+                <img src="../static/pictures/yashphoto.jpg" alt="Generic placeholder thumbnail" style="height:215px; border-radius: 50%; width: 180px;object-fit: cover;">
+            </div>
+            <div class="caption">
+                <h3>Yash Tiwari</h3>
+            </div>
+            <button type="button" class="btn btn-primary" style="background-color: black; border: none;" data-toggle="modal" data-target="#pro6">Show Details
+                </button>
+        </div>
+    </div>
+    <br><br><br>
+    <br><br><br>
+
+    <!-- </div> -->
+
+
+
+
+    <div class="modal fade" id="pro1" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header" style="background-color: black; color: #fdd54f;">
+                    <h4 style="text-align: left;" class="modal-title" id="myModalLabel">Jay B. Soni</h4>
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true" style="color: red;">
+                            ×
+                        </button>
+
+                </div>
+                <div class="modal-body" style="background-color: #fdd54f">
+                    <label><b>Name: </b></label> Jay B. Soni<br />
+                    <label><b>Enroll No: </b></label> 20916326
+                    <br />
+                    <label><b>Degree Name: </b></label> MEng
+                    <br />
+                    <label><b>Term: </b></label> 3
+                    <br />
+                    <label><b>Email Id: </b></label> jb2soni@uwaterloo.ca
+                    <br />
+                    <p><b>About Me:</b> MEng student from University of Waterloo. Always trying to learn new things. Programming, anime, movies, cricket are my hobbies. <br><b>"The process matters more than the results."</b> <br /></p>
+                </div>
+                <div class="modal-footer" style="background-color: black; color: #fdd54f;">
+                    <button type="button" style="background-color: #fdd54f;" class="btn btn-default" data-dismiss="modal">
+                            Close
+                        </button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal fade" id="pro2" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header" style="background-color: black; color: #fdd54f;">
+                    <h4 style="text-align: left;" class="modal-title" id="myModalLabel">Dhruv Dholakia</h4>
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true" style="color: red;">
+                            ×
+                        </button>
+
+                </div>
+                <div class="modal-body" style="background-color: #fdd54f">
+                    <label><b>Name: </b></label> Dhruv Dholakia<br />
+                    <label><b>Enroll No: </b>20900894 </label>
+                    <br />
+                    <label><b>Degree Name: </b> Masters of Engineering</label>
+                    <br />
+                    <label><b>Term: </b> 3 </label>
+                    <br />
+                    <label><b>Email Id: </b> djdholak@uwaterloo.ca </label>
+                    <br />
+                    <label><b>About Me: </b></label> Student at UWaterloo in MEng program and part of the Backend team for this project.<br />
+                </div>
+                <div class="modal-footer" style="background-color: black; color: #fdd54f;">
+                    <button type="button" style="background-color: #fdd54f;" class="btn btn-default" data-dismiss="modal">
+                            Close
+                        </button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal fade" id="pro3" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header" style="background-color: black; color: #fdd54f;">
+                    <h4 style="text-align: left;" class="modal-title" id="myModalLabel">Krishna Kanth Mutta</h4>
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true" style="color: red;">
+                            ×
+                        </button>
+
+                </div>
+                <div class="modal-body" style="background-color: #fdd54f">
+                    <label><b>Name: </b></label> Krishna Kanth Mutta<br />
+                    <label><b>Enroll No: </b></label> 20919166
+                    <br />
+                    <label><b>Degree Name: </b></label> MEng
+                    <br />
+                    <label><b>Term: </b></label> 3
+                    <br />
+                    <label><b>Email Id: </b></label> kkmpn@uwaterloo.ca
+                    <br />
+                    <label><b>About Me: </b></label> I'm a student at UWaterloo pursuing my graduate studies in ECE in Software specialization. I'm part of the Front-end design team and also handled Automation testing in this project. <br />
+                </div>
+                <div class="modal-footer" style="background-color: black; color: #fdd54f;">
+                    <button type="button" style="background-color: #fdd54f;" class="btn btn-default" data-dismiss="modal">
+                            Close
+                        </button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal fade" id="pro4" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header" style="background-color: black; color: #fdd54f;">
+                    <h4 style="text-align: left;" class="modal-title" id="myModalLabel">Mohammed Saquib Suglatwala</h4>
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true" style="color: red;">
+                            ×
+                        </button>
+
+                </div>
+                <div class="modal-body" style="background-color: #fdd54f">
+                    <label><b>Name: </b></label> Mohammed Saquib Suglatwala<br />
+                    <label><b>Enroll No: </b></label> 20883431
+                    <br />
+                    <label><b>Degree Name: </b></label> MEng
+                    <br />
+                    <label><b>Term: </b></label> 3
+                    <br />
+                    <label><b>Email Id: </b></label> mssuglat@uwaterloo.ca
+                    <br />
+                    <label><b>About Me: </b></label> Postgraduate at UWaterloo, interested in SE, AI/ML and resposnible for Front-end part in this project.<br />
+                </div>
+                <div class="modal-footer" style="background-color: black; color: #fdd54f;">
+                    <button type="button" style="background-color: #fdd54f;" class="btn btn-default" data-dismiss="modal">
+                            Close
+                        </button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal fade" id="pro5" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header" style="background-color: black; color: #fdd54f;">
+                    <h4 style="text-align: left;" class="modal-title" id="myModalLabel">Priyanka Jain</h4>
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true" style="color: red;">
+                            ×
+                        </button>
+
+                </div>
+                <div class="modal-body" style="background-color: #fdd54f">
+                    <label><b>Name: </b></label> Priyanka Jain<br />
+                    <label><b>Enroll No: </b></label> 20918531
+                    <br />
+                    <label><b>Degree Name: </b></label> Master's of Engineering<br />
+                    <label><b>Term: </b></label> 1
+                    <br />
+                    <label><b>Email Id: </b></label> p52jain@uwaterloo.ca
+                    <br />
+                    <label><b>About Me: </b></label> Hi, I am currently pursuing my Masters in Engineering with spealization in Software Engineering. I worked as Database engineer for this Project. If any concerns, Feel free to connect with me. <br />
+                </div>
+                <div class="modal-footer" style="background-color: black; color: #fdd54f;">
+                    <button type="button" style="background-color: #fdd54f;" class="btn btn-default" data-dismiss="modal">
+                            Close
+                        </button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal fade" id="pro6" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header" style="background-color: black; color: #fdd54f;">
+                    <h4 style="text-align: left;" class="modal-title" id="myModalLabel">Yash Tiwari</h4>
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true" style="color: red;">
+                            ×
+                        </button>
+
+                </div>
+                <div class="modal-body" style="background-color: #fdd54f">
+                    <label><b>Name: </b></label> Yash Tiwari<br />
+                    <label><b>Enroll No: 20911298</b></label> ?
+                    <br />
+                    <label><b>Degree Name: MEng</b></label> ?
+                    <br />
+                    <label><b>Term: 3</b></label> ?
+                    <br />
+                    <label><b>Email Id: y2tiwari@uwaterloo.ca</b></label> ?
+                    <br />
+                    <label><b>About Me: </b></label> Currently in 3rd term at UWaterloo and looking for a vocation.<br />
+                </div>
+                <div class="modal-footer" style="background-color: black; color: #fdd54f;">
+                    <button type="button" style="background-color: #fdd54f;" class="btn btn-default" data-dismiss="modal">
+                            Close
+                        </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<script src="../static/js/jquery.min.js"></script>
+<script src="../static/js/bootstrap.min.js"></script>
+
+
+{% endblock content %}

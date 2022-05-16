@@ -1,0 +1,84 @@
+
+{% extends "layout.html" %}
+{% block content %}
+
+    <link rel="stylesheet" href="../static/css/signup.css">
+	<div class="form">
+	<form name = "signup" method = "POST" action="/insertUser" onsubmit="return validateForm()"> <!--need to update action-->	
+		
+	<div class="form-group">	
+    <h1 id="title">Sign Up</h1>	
+    {% if msg %}
+    <div class="alert alert-danger" role="alert">
+      {{msg}}
+    </div>
+    {% endif%}
+		
+	    	
+    <div class="form-group" id="fnamediv">	
+      <label for="first" id="fnamelabel">First Name:</label>	
+      <input type="text" class="form-control" id="firstname" name="firstname" required>	
+    </div>	
+    <div class="form-group" id="lnamediv">	
+        <label for="last" id="lnamelabel">Last Name:</label>	
+        <input type="text" class="form-control" id="lastname" name="lastname" required>	
+    </div>	
+    <div class="form-group" id="emaildiv">	
+        <label for="email" id="emaillabel">Email:</label>	
+        <input type="email" pattern="[a-zA-Z0-9.-_]{1,}@[a-zA-Z.-]{2,}[.]{1}[a-zA-Z]{2,}" class="form-control" placeholder="Enter Email" id="email" name="email" required>	
+    </div>	
+    <div class="form-group" id="pswddiv">	
+      <label for="pwd" id="pswdlabel">Password:</label>	
+      <input type="password" class="form-control" id="pswd" name="password" required>	
+    </div>	
+		
+	<div class="form-group" id="message">	
+		  <b>Password must contain the following:</b>	
+		  <p id="letter" class="invalid">A <b>lowercase</b> letter</p>	
+		  <p id="capital" class="invalid">A <b>capital (uppercase)</b> letter</p>	
+		  <p id="number" class="invalid">A <b>number</b></p>	
+		  <p id="length" class="invalid">Minimum <b>8 characters</b></p>	
+	</div>	
+		
+    <div class="form-group" id="confirmpswddiv">	
+        <label for="pwd-confirm" id="confirmpswdlabel">Confirm Password:</label>	
+        <input type="password" class="form-control" id="confirmpswd" name="confirmpassword" onkeyup="confirmvalidation()" required>
+			<p id="cmsg">Passwords should match</p>
+    </div>	
+    <div class="form-group" id="genderdiv">	
+    <label for="gender" id="genderlabel">Gender: </label>	
+        <label>	
+        <input type="radio" id="male" name="gender" value="male" required> Male </label> 	
+			
+        <label>  	
+        <input type="radio" id="female" name="gender" value="female"> Female  </label>	
+			
+        <label>	
+        <input type="radio" id="other" name="gender" value="other"> Other </label>	
+        	
+    </div>	
+    <div class="form-group" id="categorydiv">	
+        <label for="category" id="categorylabel">Category:</label>	
+            <label>	
+            <input type="radio" id="student" name="category" value="student" required> Student </label> 	
+            	
+            <label>	
+            <input type="radio" id="faculty" name="category" value="faculty"> Faculty </label>	
+            	
+            <label>	
+            <input type="radio" id="recruiter" name="category" value="recruiter"> Recruiter </label>	
+            	
+            <label>	
+            <input type="radio" id="other" name="category" value='other'> Other </label>	
+            	
+    </div>
+	
+    <button type="submit" class="btn btn-primary" id="submitbtn">Confirm</button>	
+	  <button type="reset" class="btn btn-primary" id="resetbtn" onclick="resetfun()">Reset</button><br/>	
+		<a href="/login" class="btn btn-link" id="loginlink" role="button">Already a User?</a>	
+  </form>	
+  </div>
+  <script src = "../static/js/signup.js"></script>
+
+  {% endblock content %}
+  

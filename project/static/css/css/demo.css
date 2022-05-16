@@ -1,0 +1,14 @@
+
+*, *:after, *:before { -webkit-box-sizing: border-box; box-sizing: border-box; }
+.clearfix:before, .clearfix:after { content: ''; display: table; }
+.clearfix:after { clear: both; }
+
+
+.content {
+	font-size: 150%;
+	padding: 1em 0;
+}
+
+
+
+/* Header */

@@ -1,0 +1,25 @@
+
+{% extends "layout.html" %}
+{% block content %}
+
+	<form name = "login" method = "POST" action="/login">
+     {% if msg %}
+    <div class="alert alert-danger" role="alert">
+      {{msg}}
+    </div>
+    {% endif%}
+    <div class="form-group">
+      <label for="usr">Username:</label>
+      <input type="text" class="form-control" id="usr" name="email" placeholder="username@uwaterloo.ca" required>
+    </div>
+    <div class="form-group">
+      <label for="pwd">Password:</label>
+      <input type="password" class="form-control" id="pswd" name="password" required>
+    </div>
+    <button type="submit" class="btn btn-primary">Login</button>
+	<a href="/signup"><button type="button" class="btn btn-secondary" onclick="location.href='signup.html'" action="/signup">Sign Up</button></a><br/>
+		<a href="/forgotPassword" class="btn btn-link" role="button">Forgot Password?</a>
+		
+  </form>
+  
+{% endblock content %}

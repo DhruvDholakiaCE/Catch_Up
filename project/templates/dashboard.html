@@ -1,0 +1,357 @@
+{% extends "dashboard_l.html" %}
+{% block content %}
+
+<link rel="stylesheet" href="../static/css/dashboard.css">
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+		<link rel="stylesheet" type="text/css" href="../static/css/css/demo.css" />
+		<link rel="stylesheet" type="text/css" href="../static/css/css/set1.css" />
+        <!--<link rel="stylesheet" type="text/css" href="../static/css/dummy.css" />-->
+<!--<h1> Welcome {{email}}.</h1>-->
+
+<!-- <div class="search"> -->
+	<form class="nosubmit" method="post" action="/searchProfile" id="form-id">
+	<div class="container1" style="text-align:center;">
+
+		  <input class="nosubmit" type="search" name = "firstname" id="search" placeholder="Search...">
+			<button type="button" class="btn btn-primary" style="margin:0px 0px 0px 5px;color: #fdd54f; background-color: black; border: none;" data-toggle="modal" data-target="#pro1">Advance Filter
+                </button>
+
+
+	</div>
+
+
+    <!-- <form class="search"> -->
+	<!-- <div class="container"> -->
+<!-- </div> -->
+
+	<!-- </div> -->
+
+	<div class="modal fade" id="pro1" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" >
+            <div class="modal-dialog">
+
+                <div class="modal-content">
+                    <div class="modal-header" style="background-color: black; color: #fdd54f;">
+                        <h4 style="text-align: left;" class="modal-title" id="myModalLabel">Advance Filter</h4>
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true" style="color: red;">
+                            ×
+                        </button>
+                        
+                    </div>
+
+                    <div class="modal-body" style="">
+                    <section class="content">
+						<span class="input input--kaede">
+							<input class="input__field input__field--kaede" name="skills"  type="text" id="input-2" />
+							<label class="input__label input__label--kaede" for="input-2">
+								<span class="input__label-content input__label-content--kaede">Skills</span>
+							</label>
+						</span>
+						<span class="input input--kaede">
+							<input class="input__field input__field--kaede" name="department" type="text" id="input-4" />
+							<label class="input__label input__label--kaede" for="input-4">
+								<span class="input__label-content input__label-content--kaede">Department</span>
+							</label>
+						</span>
+						<span class="input input--kaede">
+							<input class="input__field input__field--kaede" name="course_no" type="text" id="input-5" />
+							<label class="input__label input__label--kaede" for="input-5">
+								<span class="input__label-content input__label-content--kaede">Course Number</span>
+							</label>
+						</span>
+						<span class="input input--kaede">
+							<input class="input__field input__field--kaede" name="company_name" type="text" id="input-6" />
+							<label class="input__label input__label--kaede" for="input-6">
+								<span class="input__label-content input__label-content--kaede">Company Name</span>
+							</label>
+						</span>
+					</section>
+                    </div>
+                    <div class="modal-footer" style="background-color: black; color: #fdd54f;">
+                        <button type="button" onclick="func();" class="btn btn-default" style="background-color: #fdd54f;" data-dismiss="model" >
+                            Search
+                        </button>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+	</form>
+	        <script>
+			(function() {
+				// trim polyfill : https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/Trim
+				if (!String.prototype.trim) {
+					(function() {
+						// Make sure we trim BOM and NBSP
+						var rtrim = /^[\s\uFEFF\xA0]+|[\s\uFEFF\xA0]+$/g;
+						String.prototype.trim = function() {
+							return this.replace(rtrim, '');
+						};
+					})();
+				}
+
+				[].slice.call( document.querySelectorAll( 'input.input__field' ) ).forEach( function( inputEl ) {
+					// in case the input is already filled..
+					if( inputEl.value.trim() !== '' ) {
+						classie.add( inputEl.parentNode, 'input--filled' );
+					}
+
+					// events:
+					inputEl.addEventListener( 'focus', onInputFocus );
+					inputEl.addEventListener( 'blur', onInputBlur );
+				} );
+
+				function onInputFocus( ev ) {
+					classie.add( ev.target.parentNode, 'input--filled' );
+				}
+
+				function onInputBlur( ev ) {
+					if( ev.target.value.trim() === '' ) {
+						classie.remove( ev.target.parentNode, 'input--filled' );
+					}
+				}
+			})();
+		</script>
+
+
+        <script>
+
+
+            // <!--var form = document.getElementById("form-id");-->
+            // <!--form.onsubmit = function(){-->
+            //     <!--var input = document.getElementById("search").value.length;-->
+            //     <!--var ip2 = document.getElementById("input-2").value.length;-->
+            //      <!--var ip4 = document.getElementById("input-4").value.length;-->
+            //     <!--var ip5 = document.getElementById("input-5").value.length;-->
+            //     <!--var ip6 = document.getElementById("input-6").value.length;-->
+            //     <!--finalLength = input+ip2+ip4+ip5+ip6;-->
+
+            //     <!--console.log(finalLength);-->
+            //     <!--if(finalLength){-->
+            //         <!--return true;-->
+            //     <!--}-->
+
+            //     <!--return false;-->
+            // <!--}-->
+            function func(){
+
+                var form = document.getElementById("form-id");
+                 var input = document.getElementById("search").value.length;
+                var ip2 = document.getElementById("input-2").value.length;
+                 var ip4 = document.getElementById("input-4").value.length;
+                var ip5 = document.getElementById("input-5").value.length;
+                var ip6 = document.getElementById("input-6").value.length;
+                finalLength = input+ip2+ip4+ip5+ip6;
+
+                if(finalLength){
+                    form.submit();
+                }
+
+            }
+
+                document.getElementById('search').onkeypress = function(e){
+                if (!e) e = window.event;
+                var keyCode = e.code || e.key;
+                if (keyCode == 'Enter'){
+                  // Enter pressed
+                  func();
+                }
+              }
+
+        </script>
+
+<style type="text/css">
+*{
+   box-sizing: border-box;
+}
+body {
+
+   text-rendering: optimizelegibility;
+   -webkit-font-smoothing: antialiased;
+   -moz-osx-font-smoothing: grayscale;
+}
+
+:root {
+   --background: white;
+
+   --primary: #ff1ead;
+   --secondary: #1effc3;
+
+   --card-size: 500px;
+}
+.card1 {
+
+ opacity: 0.95;
+ /*   
+   
+
+   display: grid;
+   grid-template-columns: 100% auto;
+   color: white;
+
+   align-items: center;
+
+   will-change: transform;
+   transition: transform 0.25s cubic-bezier(0.4, 0.0, 0.2, 2), box-shadow 0.25s cubic-bezier(0.4, 0.0, 0.2, 2);
+*/
+
+  width: calc(var(--card-size) * 1.3);
+   height: var(--card-size*0.17);
+   
+   /*border-radius: 0.75rem;
+   box-shadow:  0 22px 70px 4px rgba(0,0,0,0.56), 0 0 0 1px rgba(0, 0, 0, 0.3);
+   */
+   background: black;
+   
+   display: grid;
+   grid-template-columns: 100% auto;
+   color: white;
+   
+   align-items: center;
+   
+   will-change: transform;
+   transition: transform 0.25s cubic-bezier(0.4, 0.0, 0.2, 1);
+   
+
+
+  
+}
+ .card1:hover {
+  cursor: pointer;
+      transform: scale(1.02);
+      /*box-shadow:  0 5px 5px 5px rgba(0,0,0,0.36), 0 0 0 1px rgba(0, 0, 0, 0.3);*/
+   }
+
+
+.card-details {
+   padding: 1rem;
+}
+
+.name {
+   font-size: 1.25rem;
+}
+
+.occupation {
+   font-weight: 600;
+   color: var(--primary);
+}
+
+.card-avatar {
+   display: grid;
+   place-items: center;
+}
+
+svg {
+   fill: white;
+   width: 65%;
+}
+
+.card-about {
+   margin-top: 0.2rem;
+   display: grid;
+   grid-auto-flow: column;
+}
+
+.item {
+   <!--display: flex;-->
+   <!--flex-direction: column;-->
+   <!--margin-bottom: 0.5rem;-->
+
+   .value {
+      font-size: 0.8rem;
+   }
+
+   .label {
+      <!--margin-top: 0.15rem;-->
+      font-size: 0.6rem;
+      font-weight: 600;
+      color: var(--primary);
+   }
+}
+
+.skills {
+   display: flex;
+   flex-direction: column;
+   <!--margin-top: 0.75rem;-->
+
+   .label {
+      font-size: 0.8rem;
+      font-weight: 600;
+      color: var(--primary);
+   }
+
+   .value {
+      <!--margin-top: 0.15rem;-->
+      font-size: 0.6rem;
+      <!--line-height: 1.25rem;-->
+   }
+}
+</style>
+
+
+
+
+{% if results %}
+<div class="result" style="padding:0px 0px 0px 20.6%; text-align:center;" >
+		<link href="https://fonts.googleapis.com/css?family=Source+Code+Pro:400,500" rel="stylesheet">
+
+{% for i in range(results|length) %}
+<div class="card1" style="margin: 10px 0px; text-align: center;" onclick="window.open('/showProfile?id={{results[i][0]['signup_loginId']}}', '_blank');">
+
+   <div class="card-details">
+      <div class="name">{{ results[i][0]['firstname'] }} {{ results[i][0]['lastname'] }}</div>
+      <div class="occupation">{{ (results[i][0]['category']).capitalize() }}</div>
+
+      <div class="card-about">
+         <div class="item">
+			 <div class="label" style="color: #fdd54f;">Degree&nbsp; </div>
+            <div class="value">{{results[i][2]['degree_name']}}</div>
+
+         </div>
+         <div class="item">
+			 <div class="label" style="color: #fdd54f;">Institute&nbsp; </div>
+            <div class="value">{{results[i][2]['institution_name']}}</div>
+
+         </div>
+         <!--<div class="item">-->
+            <!--<span class="value">175 cm</span>-->
+            <!--<span class="label">Height</span>-->
+         <!--</div>-->
+      </div>
+      <div class="skills">
+		  <span class="label" style="color: #fdd54f;">Description</span>
+         <span class="value">{{results[i][1]['description']}}</span>
+
+	  </div>
+	   <div class="item">
+         <span class="label" style="color: #fdd54f;">Courses &nbsp; </span>
+
+           {% for j in range(courses[i]|length) %}
+
+           {% if j == (courses[i]|length) - 1%}
+           <span class="value" id="courses_span">{{ courses[i][j]['department']}}{{courses[i][j]['course_no']}}</span>
+           {% else %}
+           <span class="value" id="courses_span">{{ courses[i][j]['department']}}{{courses[i][j]['course_no']}},</span>
+           {% endif %}
+
+           {%endfor%}
+      </div>
+    </div>
+</div>
+
+{% endfor %}
+<br><br><br><br>
+</div>
+
+ {%else%}
+<div class="result" style="text-align:center;" >
+    <h2> Oops! No Search Results Found. </h2>
+</div>
+<script src = "../static/js/dashboard.js"></script>
+<script src = "../static/js/classie.js"></script>
+
+{% endif %}
+
+
+{% endblock content%}

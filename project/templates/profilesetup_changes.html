@@ -1,0 +1,491 @@
+{% extends "profile_setup_layout.html" %}
+{% block content %}
+
+<link rel="stylesheet" href = "../static/css/profile_setup.css">
+<link rel="stylesheet" href = "../static/css/table.css">
+<link rel="stylesheet" href = "../static/css/login.css">
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+<link rel="stylesheet" type="text/css" href="../static/css/table/util.css">
+<link rel="stylesheet" type="text/css" href="../static/css/table/main.css">
+
+
+  <div class = "profile">
+	<h1 id="title">Profile</h1>
+	<div class = "btn-box">
+		<button id="btnpi" onclick="openPI()"> Personal Information </button>
+		<button id="btnedu" onclick="openEdu()"> Education </button>
+		<button id="btnexp" onclick="openExp()"> Experience </button>
+		<button id="btnskills" onclick="openSkills()"> Skills </button>
+		<button id="btnla" onclick="openLA()"> Linked Account </button>
+	</div>
+
+	<div id="divpi" class="content">
+	  <form class="pi" >
+		<div class="form-group same" id="fnamediv">	
+			<label for="first" class="same" id="fnamelabel">First Name:</label>	
+			{% if signup %}
+			<input type="text" class="form-control same" id="firstname" name="firstname" value="{{signup[0]['firstname']}}">	
+			{% else %}
+			<input type="text" class="form-control same" id="firstname" name="firstname" >	
+			{% endif %}
+		</div>	
+		<div class="form-group same" id="lnamediv">	
+			<label for="last" class="same" id="lnamelabel">Last Name:</label>	
+			
+			{% if signup %}
+			<input type="text" class="form-control same" id="lastname" name="lastname" value="{{signup[0]['lastname']}}">
+			{% else %}
+			<input type="text" class="form-control same" id="lastname" name="lastname">
+			{% endif %}
+		</div>	
+		<div class="form-group same" id="emaildiv">	
+			<label for="email" class="same" id="emaillabel">Email:</label>	
+				
+			{% if personal %}
+			<input type="email" pattern="[a-zA-Z0-9.-_]{1,}@[a-zA-Z.-]{2,}[.]{1}[a-zA-Z]{2,}" class="form-control same" placeholder="Enter Email" id="contact_email" name="contact_email" value="{{personal[0]['contact_email']}}">
+			{% else %}
+			<input type="email" pattern="[a-zA-Z0-9.-_]{1,}@[a-zA-Z.-]{2,}[.]{1}[a-zA-Z]{2,}" class="form-control same" placeholder="Enter Email" id="contact_email" name="contact_email">
+			{% endif %}
+		</div>
+		<div class="form-group same" id="contactdiv">	
+			<label for="contactno" class="same" id="contactlabel">Contact No:</label>	
+				
+			{% if personal %}
+			<input type="text" pattern="[0-9]{10}" class="form-control same" id="contact_number" name="contact_number" value="{{personal[0]['contact_number']}}">
+			{% else %}
+			<input type="text" pattern="[0-9]{10}" class="form-control same" id="contact_number" name="contact_number">
+			{% endif %}
+		</div>
+		<div class="form-group same" id="addressdiv">	
+			<label for="address" class="same" id="addresslabel">Address:</label>	
+
+			{% if personal %}
+			<input type="text" class="form-control same" id="address" name="address" value="{{personal[0]['address']}}">	
+			{% else %}
+			<input type="text" class="form-control same" id="address" name="address">	
+			{% endif %}
+			
+		</div>
+
+		<div class="form-group same" id="description">	
+			<label for="first" class="same" id="description">Description:</label>	
+			
+			{% if personal %}
+			<input type="text" class="form-control same" id="description" name="description" value="{{personal[0]['description']}}">	
+			{% else %}
+			<input type="text" class="form-control same" id="description" name="description">	
+			{% endif %}
+			
+		</div>	
+
+			{% if personal %}
+				<input type="hidden" id="Id" name="Id" value="{{personal[0]['Id']}}">
+			{% else %}
+				<input type="hidden" id="Id" name="Id" value="Null">
+			{% endif %}
+		<button type= "submit" formaction="insertPersonalInfo" id="loginbtn" class="btn btn-primary" formmethod="POST">Update</button>
+	  </form>
+	</div>
+	
+
+
+	<div id="divedu" class="content">
+	  <form class="edu" id="edu">
+
+
+<div class="limiter">
+		<div class="container-table100">
+			<div class="wrap-table100">
+				<div class="table100 ver1 m-b-110">
+				<div class="table100-head">
+					<table>
+						<thead>
+						<tr class="row100 head">
+						<th class="cell100 column1">No.</th>
+						<th class="cell100 column2">Department</th>
+						<th class="cell100 column3">Course Number</th>
+						<th class="cell100 column4"></th>
+						<th class="cell100 column5"></th>
+						</tr>
+						</thead>
+					</table>
+				</div>
+				<div class="table100-body js-pscroll">
+					<table style="table-layout: auto">
+						<tbody>
+							<tr class="row100 body">
+							<td class="cell100 column1"></td>
+							<td class="cell100 column2"><input style='width: 100%;' type="text" id="department" name="department"></td>
+							<td class="cell100 column3"><input style='width: 100%;' type="text" id="courseno" name="courseno"></td>
+							<td class="cell100 column4" align="center"><button type="submit" formaction="insertCourse" formmethod="POST" style="border:none; background: transparent;" class="material-icons md-48 md-dark">add_circle</button></td>
+							<td class="cell100 column5"></td>
+						</tr>
+							{% for i in range(courses|length)%}
+				  		<tr class="row100 body">
+							<td class="cell100 column1" id="No.">{{i+1}}</td>
+							<td class="cell100 column2" id="department{{courses[i]['Id']}}" name="department{{courses[i]['Id']}}" >{{ courses[i]['department'] }}</td>
+
+							<td class="cell100 column3"  id="course_no{{courses[i]['Id']}}" name="course_no{{courses[i]['Id']}}">{{ courses[i]['course_no'] }}</td>
+							<td class="cell100 column4" align="center">
+							<a class= "material-icons md-40 md-dark" href="deleteCourse?Id={{courses[i]['Id']}}" style="color:black; background-color: transparent; text-decoration: none;" >delete</a>
+							</td>
+							<td align="center" class="cell100 column5">
+								<input type="hidden" value="{{courses[i]['Id']}}" id="Id">
+
+								<input type= "button" id="department_edit_row{{courses[i]['Id']}}" class="material-icons md-36" style=" border-width:0; background-color: transparent;" value="edit"  onclick="edit_row_course({{courses[i]['Id']}})">
+
+							</td>	
+
+						</tr>
+						{%endfor%}
+					
+						</tbody>
+					</table>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+		<div class="form-group same" id="degree_name">
+			<label for="last" class="same" id="degree_name">Degree:</label>
+			{% if education %}
+			<input type="text" class="form-control same" id="degree_name" name="degree_name" value="{{education[0]['degree_name']}}">
+			{% else %}
+			<input type="text" class="form-control same" id="degree_name" name="degree_name">
+			{% endif %}
+		</div>
+
+		<div class="form-group same" id="institution_name">
+			<label for="first" class="same" id="institution_name">Institution name:</label>
+			{% if education %}
+			<input type="text" class="form-control same" id="institution_name" name="institution_name" value="{{education[0]['institution_name']}}">
+			{% else %}
+			<input type="text" class="form-control same" id="institution_name" name="institution_name">
+			{% endif %}
+		</div>
+
+		<div class="form-group same" id="start_date">
+			<label for="last" class="same" id="start_date">Start Year:</label>
+
+			{% if education %}
+			<input type="text" class="form-control same" id="start_date" name="start_date" value="{{education[0]['start_date']}}">
+			{% else %}
+			<input type="text" class="form-control same" id="start_date" name="start_date">
+			{% endif %}
+		</div>
+
+		<div class="form-group same" id="end_date">
+			<label for="first" class="same" id="end_date">End Year:</label>
+
+			{% if education %}
+			<input type="text" class="form-control same" id="end_date" name="end_date" value="{{education[0]['end_date']}}">
+			{% else %}
+			<input type="text" class="form-control same" id="end_date" name="end_date">
+			{% endif %}
+		</div>
+
+		<div class="form-group same" id="cgpa">
+			<label for="first" class="same" id="cgpa">CGPA:</label>
+			{% if education %}
+			<input type="number" min="0" max="10" step=".01" class="form-control same" id="cgpa" name="cgpa" value="{{'%0.2f'| format(education[0]['cgpa']|float)}}">
+			{% else %}
+			<input type="number" min="0" value="0" step=".01" class="form-control same" id="cgpa" name="cgpa">
+			{% endif %}
+
+		</div>
+		{% if education %}
+			<input type="hidden" id="Id" name="Id" value="{{education[0]['Id']}}">
+		{% else %}
+			<input type="hidden" id="Id" name="Id" value="Null">
+		{% endif %}
+		<button type="submit" id="loginbtn" class="btn btn-primary" formaction="insertEducation" formmethod="POST" >Update</button>
+
+	  </form>
+	</div>
+
+	<div id="divexp" class="content">
+	  <form class="exp" method="post" action="/insertIndustryExp">
+		<div class="form-group same">
+			<label for="first" class="same">Company Name:</label>
+			{% if industryExp %}
+				<input type="text" class="form-control same" id="company_name" name="company_name" value="{{industryExp[0]['company_name']}}">
+			{% else %}
+				<input type="text" class="form-control same" id="company_name" name="company_name">
+			{% endif %}
+		</div>
+
+		<div class="form-group same">
+			<label for="first" class="same">Designation:</label>
+			{% if industryExp %}
+				<input type="text" class="form-control same" id="designation" name="designation" value="{{industryExp[0]['designation']}}">
+			{% else %}
+				<input type="text" class="form-control same" id="designation" name="designation" >
+			{%endif%}
+		</div>
+
+		<div class="form-group same" >
+			<label for="first" class="same" >Work Description:</label>
+			{% if industryExp %}
+				<input type="text" class="form-control same" id="work_description" name="work_description" value="{{industryExp[0]['work_description']}}">
+			{%else%}
+				<input type="text" class="form-control same" id="work_description" name="work_description">
+			{%endif%}
+		</div>
+
+		<div class="form-group same" >
+			<label for="first" class="same">No. of Months:</label>
+			{% if industryExp %}
+				<input type="number" min="1" class="form-control same" id="no_of_months" name="no_of_months" value="{{industryExp[0]['no_of_months']}}">
+
+				<input type="hidden" id="Id" name="Id" value="{{industryExp[0]['Id']}}">
+			{% else %}
+				<input type="number" min="1" class="form-control same" id="no_of_months" name="no_of_months">
+				<input type="hidden" id="Id" name="Id" value="Null">
+			{% endif %}
+		</div>
+
+        {% if industryExp %}
+          <button type="submit" id="loginbtn" class="btn btn-primary" formaction="insertIndustryExp" formmethod="post" >Update</button>
+          <button type="submit" id="loginbtn" class="btn btn-primary" formaction="deleteIndustryExp?Id={{industryExp['Id']}}" formmethod="GET" >Delete</button>
+          {%else%}
+          <button type="submit" formaction="insertIndustryExp" id="loginbtn" class="btn btn-primary" formmethod="post" >Submit</button>
+          {%endif%}
+	  </form>
+	</div>
+
+	<div id="divskills" class="content">
+	  <form class="skills" id="skills">
+	  	<div class="limiter">
+		<div class="container-table100">
+			<div class="wrap-table100">
+				<div class="table100 ver1 m-b-110">
+				<div class="table100-head">
+					<table>
+						<thead>
+						<tr class="row100 head">
+						<th class="cell100 column1">No.</th>
+						<th class="cell100 column2">Project Title</th>
+						<th class="cell100 column3">Project Description</th>
+						<th class="cell100 column4"></th>
+						<th class="cell100 column5"></th>
+						</tr>
+						</thead>
+					</table>
+				</div>
+				<div class="table100-body js-pscroll">
+					<table style="table-layout: auto" class="table_links">
+						<tbody>
+
+						<tr class="row100 body">
+							<td class="cell100 column1"></td>
+							<td class="cell100 column2"><input style='width: 100%;' type="text" id="project_title" name="project_title"></td>
+							<td class="cell100 column3"><input style='width: 100%;' type="text" id="project_detail" name="project_detail"></td>
+							<td class="cell100 column4" align="center"><button type="submit" formaction="insertProject" formmethod="POST" style="border:none; background: transparent;" class="material-icons md-48 md-dark">add_circle</button></td>
+							<td></td>
+						</tr>
+							{% for i in range(projects|length) %}
+		  		
+				  		<tr class="row100 body">
+							<td class="cell100 column1" id="No.">{{i+1}}</td>
+							<td class="cell100 column2" id="project_title{{projects[i]['Id']}}" name="project_title{{projects[i]['Id']}}" >{{ projects[i]['project_title'] }}</td>		
+							<td class="cell100 column3" id="project_detail{{projects[i]['Id']}}" name="project_detail{{projects[i]['Id']}}">{{ projects[i]['project_detail'] }}</td>
+							<td class="cell100 column4" align="center">
+							<a class= "material-icons md-40 md-dark" href="deleteProject?Id={{projects[i]['Id']}}" style="color:black; background-color: transparent; text-decoration: none;" >delete</a>
+							</td>
+							<td align="center" >
+								<input type="hidden" value="{{projects[i]['Id']}}" id="Id">
+							<input type= "button" id="project_edit_button{{projects[i]['Id']}}" class="material-icons md-36" style=" border-width:0; background-color: transparent;" value="edit"  onclick="edit_row_project({{projects[i]['Id']}})">
+							</td>
+						</tr>
+						{%endfor%}
+						</tbody>
+					</table>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+
+	<div class="limiter">
+		<div class="container-table100">
+			<div class="wrap-table100">
+				<div class="table100 ver1 m-b-110">
+				<div class="table100-head">
+					<table>
+						<thead>
+						<tr class="row100 head">
+						<th class="cell100 column11">No.</th>
+						<th class="cell100 column12">Certificate</th>
+						<th class="cell100 column13"></th>
+						<th class="cell100 column14"></th>
+						</tr>
+						</thead>
+					</table>
+				</div>
+				<div class="table100-body js-pscroll">
+					<table style="table-layout: auto" class="table_links">
+						<tbody>
+
+						<tr class="row100 body">
+							<td class="cell100 column11"></td>
+							<td class="cell100 column12"><input style='width: 100%;' type="text" id="certificate" name="certificates"></td>
+							<td class="cell100 column13" align="center"><button type="submit" formaction="insertCertificates" formmethod="POST" style="border:none; background: transparent;" class="material-icons md-48 md-dark">add_circle</button></td>
+							<td class="cell100 column14"></td>
+						</tr>
+							{% for i in range(certificates|length) %}
+				  		<tr class="row100 body">
+							<td class="cell100 column11" id="No.">{{i+1}}</td>
+							<td class="cell100 column12" id="certificate{{certificates[i]['Id']}}" name="certificate{{certificates[i]['Id']}}">{{ certificates[i]['certificates']}}</td>
+							
+							<td class="cell100 column13" align="center">
+							<a class= "material-icons md-40 md-dark" href="deleteCertificates?Id={{certificates[i]['Id']}}" style="color:black; background-color: transparent; text-decoration: none;" >delete</a>
+							</td>
+							<td align="center" class="cell100 column14">
+								<input type="hidden" value="{{certificates[i]['Id']}}" id="Id">
+							<input type= "button" id="certificate_edit_button{{certificates[i]['Id']}}" class="material-icons md-36" style=" border-width:0; background-color: transparent;" value="edit"  onclick="edit_row_certi({{certificates[i]['Id']}})">
+							</td>	
+
+						</tr>
+						{%endfor%}
+						</tbody>
+					</table>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="limiter">
+		<div class="container-table100">
+			<div class="wrap-table100">
+				<div class="table100 ver1 m-b-110">
+				<div class="table100-head">
+					<table>
+						<thead>
+						<tr class="row100 head">
+						<th class="cell100 column11">No.</th>
+						<th class="cell100 column12">Skills/Hobbies</th>
+						<th class="cell100 column13"></th>
+						<th class="cell100 column14"></th>
+						</tr>
+						</thead>
+					</table>
+				</div>
+				<div class="table100-body js-pscroll">
+					<table style="table-layout: auto" class="table_links">
+						<tbody>
+
+						<tr class="row100 body">
+							<td class="cell100 column11"></td>
+							<td class="cell100 column12"><input style='width: 100%;' type="text" id="hobbies" name="hobbies"></td>
+							<td class="cell100 column13" align="center"><button type="submit" formaction="insertHobbies" formmethod="POST" style="border:none; background: transparent;" class="material-icons md-48 md-dark">add_circle</button></td>
+							<td class="cell100 column14"></td>
+						</tr>
+							{% for i in range(hobbies|length) %}
+				  		<tr class="row100 body">
+							<td class="cell100 column11" id="No.">{{i+1}}</td>
+							<td class="cell100 column12" id="hobbies{{hobbies[i]['Id']}}" name="hobbies{{hobbies[i]['Id']}}">{{ hobbies[i]['hobbies'] }}</td>
+							
+							<td class="cell100 column13" align="center">
+							<a class= "material-icons md-40 md-dark" href="deleteHobbies?Id={{hobbies[i]['Id']}}" style="color:black; background-color: transparent; text-decoration: none;" >delete</a>
+							</td>
+							<td align="center" class="cell100 column14">
+								<input type="hidden" value="{{hobbies[i]['Id']}}" id="Id">
+							<input type= "button" id="hobbies_edit_button{{hobbies[i]['Id']}}" class="material-icons md-36" style=" border-width:0; background-color: transparent;" value="edit"  onclick="edit_row_hobbies({{hobbies[i]['Id']}})">
+								
+							</td>	
+
+						</tr>
+						{%endfor%}
+						</tbody>
+					</table>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	  </form>
+	</div>
+	
+
+
+
+	<div id="divla" class="content">
+	  <form class="la" id="la">
+
+	<div class="limiter">
+		<div class="container-table100">
+			<div class="wrap-table100">
+				<div class="table100 ver1 m-b-110">
+				<div class="table100-head">
+					<table>
+						<thead>
+						<tr class="row100 head">
+						<th class="cell100 column1">No.</th>
+						<th class="cell100 column2">Platform</th>
+						<th class="cell100 column3">Link</th>
+						<th class="cell100 column4"></th>
+						<th class="cell100 column5"></th>
+						</tr>
+						</thead>
+					</table>
+				</div>
+				<div class="table100-body js-pscroll">
+					<table style="table-layout: auto" class="table_links">
+						<tbody>
+
+							<tr class="row100 body">
+							<td class="cell100 column1"></td>
+							<td class="cell100 column2"><input style='width: 100%;' type="text" id="platform" name="platform"></td>
+							<td class="cell100 column3"><input style='width: 100%;' type="text" id="link" name="link"></td>
+							<td class="cell100 column4" align="center"><button type="submit" formaction="insertAccount" formmethod="POST" style="border:none; background: transparent;" class="material-icons md-48 md-dark">add_circle</button></td>
+							<td class="cell100 column5"></td>
+						</tr>
+							{% for i in range(accounts|length) %}
+				  		<tr class="row100 body">
+							<td class="cell100 column1" id="No.">{{i+1}}</td>
+							<td class="cell100 column2" id="platform{{accounts[i]['Id']}}" name="platform{{accounts[i]['Id']}}">{{accounts[i]['platform']}}</td>
+							<td class="cell100 column3"  id="link{{accounts[i]['Id']}}" name="link{{accounts[i]['Id']}}">{{accounts[i]['link']}}</td>
+							<td class="cell100 column4" align="center">
+							<a class= "material-icons md-40 md-dark" href="deleteAccounts?Id={{accounts[i]['Id']}}" style="color:black; background-color: transparent; text-decoration: none;" >delete</a>
+							</td>
+							<td align="center" class="cell100 column5">
+								<input type="hidden" value="{{accounts[i]['Id']}}" id="Id">
+							<input type= "button" id="platform_edit_button{{accounts[i]['Id']}}" class="material-icons md-36" style=" border-width:0; background-color: transparent;" value="edit"  onclick="edit_row({{accounts[i]['Id']}})">
+								
+							</td>	
+
+						</tr>
+						{%endfor%}
+						
+						</tbody>
+					</table>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	  </form>
+	</div>
+	
+</div>
+</form>
+<script src = "../static/js/profile_setup.js"></script>
+<script src = "../static/js/button.js"></script>
+
+{%if session['currentPage']=='personal_information' %}
+<script> openPI();console.log("this is printed");</script>
+
+{%elif session['currentPage']=='education' %}
+<script>openEdu();console.log("this is printed");</script>
+{%elif session['currentPage']== 'experience'%}
+<script>openExp();console.log("this is printed");</script>
+{%elif session['currentPage']== 'skills' %}
+<script>openSkills();console.log("this is printed");</script>
+{%else%}
+<script>openLA();console.log("this is printed");</script>
+{%endif%}
+{% endblock content %}
+

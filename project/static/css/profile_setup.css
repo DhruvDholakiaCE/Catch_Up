@@ -1,0 +1,178 @@
+div.profile{
+	padding: 25px;
+	margin-left: 220px;
+	margin-right: auto;
+}
+
+form.pi{
+	height: auto;
+	/*width: 380px;*/
+	width: 675px;
+	background-color: #fdd54f; 
+	border: 2px solid #8fc4b7;
+	border-radius: 15px;
+	border-color: #000000;
+	display: inline-block;
+    margin-left: auto;
+    margin-right: auto;
+	margin-top: auto;
+	margin-bottom: 30%;
+    text-align: left;
+}
+
+form.edu{
+	height: auto;
+	width: 675px;
+	background-color: #fdd54f; 
+	border: 2px solid #8fc4b7;
+	border-radius: 15px;
+	border-color: #000000;
+	display: inline-block;
+    /*margin-left: 50px;*/
+    margin-right: auto;
+	margin-top: auto;
+	margin-bottom: 30%;
+    text-align: left;
+}
+form.exp{
+	height: auto;
+	/*width: 380px;*/
+	width: 675px;
+	background-color: #fdd54f; 
+	border: 2px solid #8fc4b7;
+	border-radius: 15px;
+	border-color: #000000;
+	display: inline-block;
+    /*margin-left: 120px;*/
+    margin-right: auto;
+	margin-top: auto;
+	margin-bottom: 30%;
+    text-align: left;
+}
+form.skills{
+	height: auto;
+	/*width: 380px;*/
+	width: 675px;
+	background-color: #fdd54f; 
+	border: 2px solid #8fc4b7;
+	border-radius: 15px;
+	border-color: #000000;
+	display: inline-block;
+    /*margin-left: 200px;*/
+    margin-right: auto;
+	margin-top: auto;
+	margin-bottom: 30%;
+    text-align: left;
+}
+form.la{
+	height: auto;
+	/*width: 380px;*/
+	width: 675px;
+	background-color: #fdd54f; 
+	border: 2px solid #8fc4b7;
+	border-radius: 15px;
+	border-color: #000000;
+	
+    /*margin-left: 290px;*/
+    /*margin-right: auto;*/
+	margin-top: auto;
+	margin-bottom: 30%;
+    text-align: left;
+}
+
+.btn-box{
+	display: flex;
+}
+.btn-box button{
+	background: transparent;
+	outline: none;
+	cursor: pointer;
+	background-color: #000;
+	color: #fdd54f;
+	padding: 10px;
+	font-weight: bold;
+	width: 135px;
+}
+.btn-box button:hover{
+	background-color: #fdd54f;
+	color: #000;
+}
+
+.btn-box button:focus{
+	background-color: #fdd54f;
+	color: #000;
+}
+
+.content{
+	margin: 5px;
+	position: absolute;
+}
+#leveledudiv{
+	padding:0px 20px;
+}
+#leveledulabel{
+	font-family:Helvetica;
+	font-size: 15px;
+	font-weight: bold;
+}
+
+input[type='radio']:after {
+        width: 15px;
+        height: 15px;
+        border-radius: 15px;
+        top: -2px;
+        left: -1px;
+        position: relative;
+        background-color: #d0b4ef;
+        content: '';
+        display: inline-block;
+        visibility: visible;
+}
+
+input[type='radio']:checked:after {
+        width: 15px;
+        height: 15px;
+        border-radius: 15px;
+        top: -2px;
+        left: -1px;
+        position: relative;
+        background-color: #000000;
+        content: '';
+        display: inline-block;
+        visibility: visible;
+        border: 2px solid white;
+}
+div.same{
+	padding: 0px 20px;
+}
+label.same{
+	font-family:Helvetica;
+	font-size: 15px;
+	font-weight: bold;
+}
+input.same{
+    border: 2px solid #cdcdcd;
+    border-color: rgba(0,0,0,.15);
+    background-color: white;
+	box-shadow: 3px 3px;
+}
+input.same:hover{
+	box-shadow: none;
+}
+div#degree_name{
+	padding: 0px 20px;
+}
+label#degree_name{
+	font-family:Helvetica;
+	font-size: 15px;
+	font-weight: bold;
+}
+input#degree_name{
+	border: 2px solid #cdcdcd;
+    border-color: rgba(0,0,0,.15);
+    background-color: white;
+	box-shadow: 3px 3px;
+}
+input#degree_name:hover{
+	box-shadow: none;
+}

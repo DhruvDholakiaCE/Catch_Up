@@ -1,0 +1,69 @@
+form{
+	height: 100%;
+	width: 120%;
+	background-color: #fdd54f; 
+	border: 2px solid #8fc4b7;
+	border-radius: 15px;
+	border-color: #000000;
+	display: inline-block;
+    margin-left: auto;
+    margin-right: auto;
+	margin-top: 25%;
+	margin-bottom: 50%;
+    text-align: left;
+}
+div.form
+{
+    display: block;
+    text-align: center;
+}
+#title{
+	padding: 10px 20px 0px;
+}
+
+#loginbtn{
+	margin: 10px 0px 20px 20px;
+	background-color: #000000;
+	color: #fdd54f;
+}
+#fpbtn{
+	padding: 10px 20px 20px;
+	color: #003366;
+	text-decoration: underline;
+}
+
+#userdiv{
+	padding: 0px 20px;
+}
+#userlabel{
+	font-family:Helvetica;
+	font-size: 15px;
+	font-weight: bold;
+}
+#usr{
+    border: 2px solid #cdcdcd;
+    border-color: rgba(0,0,0,.15);
+    background-color: white;
+	box-shadow: 3px 3px;
+}
+#usr:hover{
+	box-shadow: none;
+}
+
+#pswddiv{
+	padding: 0px 20px;
+}
+#pswdlabel{
+	font-family:Helvetica;
+	font-size: 15px;
+	font-weight: bold;
+}
+#pswd{
+	border: 2px solid #cdcdcd;
+    border-color: rgba(0,0,0,.15);
+    background-color: white;
+	box-shadow: 3px 3px;
+}
+#pswd:hover{
+	box-shadow: none;
+}

@@ -1,0 +1,158 @@
+.show {
+    /*padding: 0px;*/
+    /*margin-left: 0px;*/
+    margin-top: 3%;
+    /*margin-bottom: 3%;*/
+    
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    text-align: center;
+    /*margin-right: 1px;*/
+    /*margin-top: 5%;*/
+}
+
+.name_profile {
+    
+    height: 100px;
+    width: 80%;
+    background-color: #000;
+    border-radius: 20px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    text-align: center;
+    /*margin-top: 10%;*/
+    /*margin-right: 20%;*/
+    /*box-shadow: 1px 1px #d0b4ef , 2px 2px #be33da, 3px 3px #fdd54f,  4px 4px #e4b429 ;*/
+    padding: 10px 10px 10px 20px;
+}
+.circle_profile {
+    background-color: #fdd54f;
+
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    width: 90px; 
+    height: 80px;
+    border-radius: 50%;
+    padding: 10px 10px;
+    color: #000;
+    font-size: 33px;
+    font-family: Poppins, sans-serif;
+    line-height: 1.8em;
+
+}
+
+.cname_profile {
+    height: 100%;
+    margin-top: -14px;
+    margin-left: 20px;
+    font-size: 35px;
+    font-family: Poppins, sans-serif;
+    line-height: 3em;
+    color: #fdd54f;
+    flex-direction: row; 
+    /*box-sizing: border-box; */
+    display: flex; 
+    flex: 1 1 calc(100% - 100px); 
+    /*padding-bottom: 50px;*/
+    /*margin-bottom: 50px;*/
+    min-width: calc(100% - 112px);
+}
+
+
+
+
+.show1 {
+    margin-top: 1%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    text-align: center;
+    
+}
+.bg_profile {
+
+    border-color: black;
+    border: 1px solid;
+    width: 80%;
+    margin: 0px;
+    display: flex;
+    flex-direction: row;
+    background-color: #fdd54f;
+    border-radius: 10px;
+}
+
+
+.title_profile {
+    color: black;
+    padding: 10px;
+    font-family: Inter, sans-serif;
+    font-size: 20px;
+    line-height: 130%;
+}
+
+hr{
+    border-color: black;
+    border-width: 3px;
+    margin-bottom: 3px;
+    margin-top: 0px;
+    width: 90%;
+
+}
+td {
+  /*max-width: 100px;*/
+ overflow: hidden;
+ /*text-overflow: ellipsis;*/
+ /*white-space: nowrap;*/
+
+
+
+ /*display: -webkit-box;*/
+  /*-webkit-line-clamp: 3;*/
+  -webkit-box-orient: vertical;  
+  overflow: hidden;
+}
+.col1{
+    padding: 0% 0% 0% 5%;
+    padding-bottom: 5px;
+    width: 270px;
+    text-align: left;
+
+}
+.col2{
+    width:800px;
+    text-align: left;
+    padding: 0% 5% 0% 0%;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
